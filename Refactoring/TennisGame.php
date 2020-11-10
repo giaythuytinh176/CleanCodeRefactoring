@@ -27,8 +27,8 @@ class TennisGame
 
     public function ScoreDifferent($player1Score, $player2Score)
     {
-        for ($PointCount = 1; $PointCount < 3; $PointCount++) {
-            if ($PointCount == 1) $tempScore = $player1Score;
+        for ($pointCount = 1; $pointCount < 3; $pointCount++) {
+            if ($pointCount == 1) $tempScore = $player1Score;
             else {
                 $this->score .= "-";
                 $tempScore = $player2Score;
