@@ -14,24 +14,24 @@ class TennisGame
     const POINT30 = 30;
     const POINT40 = 40;
 
-    public function getScore($Player1Score, $Player2Core)
+    public function getScore($player1Score, $player2Score)
     {
-        if ($Player1Score == $Player2Core) {
-            $this->ScoreEqual($Player1Score, $Player2Core);
-        } else if ($Player1Score >= 4 || $Player2Core >= 4) {
-            $this->PlayerAdvantage($Player1Score, $Player2Core);
+        if ($player1Score == $player2Score) {
+            $this->ScoreEqual($player1Score);
+        } else if ($player1Score >= 4 || $player2Score >= 4) {
+            $this->PlayerAdvantage($player1Score, $player2Score);
         } else {
-            $this->ScoreDifferent($Player1Score, $Player2Core);
+            $this->ScoreDifferent($player1Score, $player2Score);
         }
     }
 
-    public function ScoreDifferent($Player1Score, $Player2Core)
+    public function ScoreDifferent($player1Score, $player2Score)
     {
         for ($PointCount = 1; $PointCount < 3; $PointCount++) {
-            if ($PointCount == 1) $tempScore = $Player1Score;
+            if ($PointCount == 1) $tempScore = $player1Score;
             else {
                 $this->score .= "-";
-                $tempScore = $Player2Core;
+                $tempScore = $player2Score;
             }
             switch ($tempScore) {
                 case self::POINT0:
@@ -50,18 +50,18 @@ class TennisGame
         }
     }
 
-    public function PlayerAdvantage($Player1Score, $Player2Core)
+    public function PlayerAdvantage($player1Score, $player2Score)
     {
-        $minusResult = $Player1Score - $Player2Core;
+        $minusResult = $player1Score - $player2Score;
         if ($minusResult == 1) $this->score = "Advantage player1";
         else if ($minusResult == -1) $this->score = "Advantage player2";
         else if ($minusResult >= 2) $this->score = "Win for player1";
         else $this->score = "Win for player2";
     }
 
-    public function ScoreEqual($Player1Score, $Player2Score)
+    public function ScoreEqual($player1Score)
     {
-        switch ($Player1Score) {
+        switch ($player1Score) {
             case self::POINT0:
                 $this->score = "Love-All";
                 break;
