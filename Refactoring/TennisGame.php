@@ -14,7 +14,6 @@ class TennisGame
     const POINT30 = 30;
     const POINT40 = 40;
 
-
     public function getScore($Player1Score, $Player2Core)
     {
         if ($Player1Score == $Player2Core) {
@@ -28,8 +27,8 @@ class TennisGame
 
     public function ScoreDifferent($Player1Score, $Player2Core)
     {
-        for ($i = 1; $i < 3; $i++) {
-            if ($i == 1) $tempScore = $Player1Score;
+        for ($PointCount = 1; $PointCount < 3; $PointCount++) {
+            if ($PointCount == 1) $tempScore = $Player1Score;
             else {
                 $this->score .= "-";
                 $tempScore = $Player2Core;
